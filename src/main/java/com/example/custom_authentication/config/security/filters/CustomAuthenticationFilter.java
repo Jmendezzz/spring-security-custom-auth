@@ -27,10 +27,8 @@ public class CustomAuthenticationFilter extends OncePerRequestFilter {
     Authentication userAuth = authenticationManager.authenticate(customAuth);
     if(userAuth.isAuthenticated()){
       SecurityContextHolder.getContext().setAuthentication(userAuth); // Set the user to the context of the applcation.
+      SecurityContextHolder.getContext().getAuthentication();
       filterChain.doFilter(request, response); // Only when authentication works
-
     }
-
-
   }
 }
